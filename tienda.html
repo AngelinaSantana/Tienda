@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo-tienda.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Delius+Unicase&display=swap" rel="stylesheet">  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+<script src="js/tienda.js"></script>
+    <title>Girl shop</title>
+
+</head>
+<body>
+    <!-- menu -->
+    <nav class="bg-light shadow-sm sticky-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-4 text-center">
+              <img src="img/logo.png" alt="Logo curso" class="p-2">
+            </div>
+            <div class="col-12  col-md-8 d-none d-md-block text-right ">
+              <ul class="mb-0 list-unstyled font-weight-light">
+                
+                <li class="d-inline-block p-3"><a href="template.html" class="text-secondary lead">Inicio</a></li>
+                <li class="d-inline-block p-3"><a href="tienda.html" class="text-secondary lead">Tienda</a></li>
+                <li class="d-inline-block p-3"><a href="inicio-sesion.html" class="text-secondary lead">Iniciar Sesión</a></li>
+                <li class="d-inline-block p-3"><a href="" class="text-secondary lead"><img src="img/outline_shopping_cart_black_24dp.png" alt="carrito de compras"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- fin del menu -->
+    <div class="container m-5 p-2">
+        <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header"> <button class="btn btn-hide text-uppercase" type="button" data-toggle="collapse" data-target="#filterbar" aria-expanded="false" aria-controls="filterbar" id="filter-btn" onclick="changeBtnTxt()"> <span class="fas fa-angle-left" id="filter-angle"></span> <span id="btn-txt">ocultar filtro</span> </button>
+            <nav class="navbar navbar-expand-lg navbar-light pl-lg-0 pl-auto"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav" aria-expanded="false" aria-label="Toggle navigation" onclick="chnageIcon()" id="icon"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse" id="mynav">
+                    <ul class="navbar-nav d-lg-flex align-items-lg-center">
+                        <li class="nav-item active"> <select name="sort" id="sort">
+                                <option value="hidden selected" >Ordenar por</option>
+                                <option value="price">Precio</option>
+                                <option value="popularity">Popularidad</option>
+                                <option value="rating">Clasificación</option>
+                            </select> </li>
+                        <li class="nav-item d-inline-flex align-items-center justify-content-between mb-lg-0 mb-3">
+                            <div class="d-inline-flex align-items-center mx-lg-2" id="select2">
+                                <div class="pl-2">Productos:</div> <select name="pro" id="pro">
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                            <div class="font-weight-bold mx-2 result">18 de 200</div>
+                        </li>
+                        <li class="nav-item d-lg-none d-inline-flex"> </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="ml-auto mt-3 mr-2">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"> <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true" class="font-weight-bold">&lt;</span> <span class="sr-only">Anterior</span> </a> </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">24</a></li>
+                        <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true" class="font-weight-bold">&gt;</span> <span class="sr-only">Siguiente</span> </a> </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="content" class="my-3">
+            <div id="filterbar" class="collapse">
+                <div class="box border-bottom">
+                    <div class="form-group text-center">
+                        <div class="btn-group" data-toggle="buttons"> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="radio"> Reset </label> <label class="btn btn-success form-check-label active"> <input class="form-check-input" type="radio" checked> Apply </label> </div>
+                    </div>
+                    <div> <label class="tick">New <input type="checkbox" checked="checked"> <span class="check"></span> </label> </div>
+                    <div> <label class="tick">Sale <input type="checkbox"> <span class="check"></span> </label> </div>
+                </div>
+                <div class="box border-bottom">
+                    <div class="box-label text-uppercase d-flex align-items-center">Outerwear <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#inner-box" aria-expanded="false" aria-controls="inner-box" id="out" onclick="outerFilter()"> <span class="fas fa-plus"></span> </button> </div>
+                    <div id="inner-box" class="collapse mt-2 mr-1">
+                        <div class="my-1"> <label class="tick">Windbreaker <input type="checkbox" checked="checked"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Jumpsuit <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Jacket <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Coat <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Raincoat <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Handbag <input type="checkbox" checked> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Warm vest <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Wallets <input type="checkbox" checked> <span class="check"></span> </label> </div>
+                    </div>
+                </div>
+                <div class="box border-bottom">
+                    <div class="box-label text-uppercase d-flex align-items-center">season <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#inner-box2" aria-expanded="false" aria-controls="inner-box2"><span class="fas fa-plus"></span></button> </div>
+                    <div id="inner-box2" class="collapse mt-2 mr-1">
+                        <div class="my-1"> <label class="tick">Spring <input type="checkbox" checked="checked"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Summer <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Autumn <input type="checkbox" checked> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Winter <input type="checkbox"> <span class="check"></span> </label> </div>
+                        <div class="my-1"> <label class="tick">Rainy <input type="checkbox"> <span class="check"></span> </label> </div>
+                    </div>
+                </div>
+                <div class="box border-bottom">
+                    <div class="box-label text-uppercase d-flex align-items-center">price <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#price" aria-expanded="false" aria-controls="price"><span class="fas fa-plus"></span></button> </div>
+                    <div class="collapse" id="price">
+                        <div class="middle">
+                            <div class="multi-range-slider"> <input type="range" id="input-left" min="0" max="100" value="10"> <input type="range" id="input-right" min="0" max="100" value="50">
+                                <div class="slider">
+                                    <div class="track"></div>
+                                    <div class="range"></div>
+                                    <div class="thumb left"></div>
+                                    <div class="thumb right"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-2">
+                            <div> <span id="amount-left" class="font-weight-bold"></span> DOP </div>
+                            <div> <span id="amount-right" class="font-weight-bold"></span> DOP </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-label text-uppercase d-flex align-items-center">size <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#size" aria-expanded="false" aria-controls="size"><span class="fas fa-plus"></span></button> </div>
+                    <div id="size" class="collapse">
+                        <div class="btn-group d-flex align-items-center flex-wrap" data-toggle="buttons"> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox"> 80 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 92 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 102 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 104 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 106 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 108 </label> </div>
+                    </div>
+                </div>
+            </div>
+            <div id="products">
+                <div class="row mx-0">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card d-flex flex-column align-items-center">
+                            <div class="product-name">Torn Jeans para hombres</div>
+                            <div class="card-img"> <img src="https://www.freepnglogos.com/uploads/jeans-png/jeans-mens-pants-cliparts-download-clip-art-37.png" alt=""> </div>
+                            <div class="card-body pt-5">
+                                <div class="text-muted text-center mt-auto">Colores Disponibles</div>
+                                <div class="d-flex align-items-center justify-content-center colors my-2">
+                                    <div class="btn-group" data-toggle="buttons" data-tooltip="tooltip" data-placement="right" title="choose color"> <label class="btn btn-red form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-blue form-check-label active"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-green form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-orange form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-pink form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> </div>
+                                </div>
+                                <div class="d-flex align-items-center price">
+                                    <div class="del mr-2"><span class="text-dark">5500 DOP</span></div>
+                                    <div class="font-weight-bold">4500 DOP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 pt-md-0 pt-3">
+                        <div class="card d-flex flex-column align-items-center">
+                            <div class="product-name">Nike Tshirts para hombres</div>
+                            <div class="card-img"> <img src="https://www.freepnglogos.com/uploads/t-shirt-png/t-shirt-png-printed-shirts-south-africa-20.png" alt="" height="100" id="shirt"> </div>
+                            <div class="text-muted text-center mt-auto">Sizes Disponibles</div>
+                            <div id="avail-size">
+                                <div class="btn-group d-flex align-items-center flex-wrap" data-toggle="buttons"> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox"> 80 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 92 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 102 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 104 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 106 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 108 </label> </div>
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="text-muted text-center mt-auto">Colores Disponibles</div>
+                                <div class="d-flex align-items-center justify-content-center colors my-2">
+                                    <div class="btn-group" data-toggle="buttons" data-tooltip="tooltip" data-placement="right" title="choose color"> <label class="btn btn-light border form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-blue form-check-label active"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-green form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-orange form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-pink form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> </div>
+                                </div>
+                                <div class="d-flex align-items-center price">
+                                    <div class="del mr-2"><span class="text-dark">5500 DOP</span></div>
+                                    <div class="font-weight-bold">4500 DOP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 pt-lg-0 pt-md-4 pt-3">
+                        <div class="card d-flex flex-column align-items-center">
+                            <div class="product-name text-center">Casual Dress Belts para hombres</div>
+                            <div class="card-img"> <img src="https://www.freepnglogos.com/uploads/belts-png/casual-dress-belts-for-men-28.png" alt=""> </div>
+                            <div class="card-body pt-5">
+                                <div class="text-muted text-center mt-auto">Colores Disponibles</div>
+                                <div class="d-flex align-items-center justify-content-center colors my-2">
+                                    <div class="btn-group" data-toggle="buttons" data-tooltip="tooltip" data-placement="right" title="choose color"> <label class="btn btn-dark border form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-brown form-check-label active"> <input class="form-check-input" type="radio" autocomplete="off"> </label> </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center price">
+                                    <div class="font-weight-bold">500 DOP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 pt-md-4 pt-3">
+                        <div class="card d-flex flex-column align-items-center">
+                            <div class="product-name text-center">Footwear para Mujer</div>
+                            <div class="card-img"> <img src="https://www.freepnglogos.com/uploads/women-shoes-png/download-women-shoes-png-image-png-image-pngimg-2.png" alt=""> </div>
+                            <div class="card-body pt-5">
+                                <div class="text-muted text-center mt-auto">Colores Disponibles</div>
+                                <div class="d-flex align-items-center justify-content-center colors my-2">
+                                    <div class="btn-group" data-toggle="buttons" data-tooltip="tooltip" data-placement="right" title="choose color"> <label class="btn btn-dark border form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-brown form-check-label active"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-pink form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-red form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center price">
+                                    <div class="font-weight-bold">1500 DOP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 pt-md-4 pt-3">
+                        <div class="card d-flex flex-column align-items-center">
+                            <div class="product-name text-center">Nike Jogging shoes para hombres</div>
+                            <div class="card-img"> <img src="https://www.freepnglogos.com/uploads/shoes-png/find-your-perfect-running-shoes-26.png" alt=""> </div>
+                            <div class="card-body pt-5">
+                                <div class="text-muted text-center mt-auto">Colores Disponibles</div>
+                                <div class="d-flex align-items-center justify-content-center colors my-2">
+                                    <div class="btn-group" data-toggle="buttons" data-tooltip="tooltip" data-placement="right" title="choose color"> <label class="btn btn-dark border form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-pink form-check-label active"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-blue form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-orange form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center price">
+                                    <div class="font-weight-bold">1200 DOP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 pt-md-4 pt-3">
+                        <div class="card d-flex flex-column align-items-center">
+                            <div class="product-name text-center">Leather Wallets para hombres</div>
+                            <div class="card-img"> <img src="https://www.freepnglogos.com/uploads/money-png/money-wallet-dollar-image-money-pictures-download-27.png" alt=""> </div>
+                            <div class="card-body pt-5">
+                                <div class="text-muted text-center mt-auto">Colores Disponibles</div>
+                                <div class="d-flex align-items-center justify-content-center colors my-2">
+                                    <div class="btn-group" data-toggle="buttons" data-tooltip="tooltip" data-placement="right" title="choose color"> <label class="btn btn-dark border form-check-label"> <input class="form-check-input" type="radio" autocomplete="off"> </label> <label class="btn btn-brown form-check-label active"> <input class="form-check-input" type="radio" autocomplete="off"> </label> </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center price">
+                                    <div class="font-weight-bold">900 DOP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Optional JavaScript -->
+  
+</body>
+</html>
